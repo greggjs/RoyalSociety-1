@@ -10,13 +10,13 @@ void List::toFront(Node* node) {
     node->prev = sentinel;
 }
 
-Node* List::insertAfter(Node* after_, Rect r) {
+Node* List::insertAfter(Node* after_, Rect* r) {
     Node* temp = new Node;
     temp->next = after_->next;
     temp->prev = after_;
     after_->next = temp;
     temp->next->prev = temp;
-	temp->rect = r;
+	temp->rect = new Rect();
 	return temp;
 }
 

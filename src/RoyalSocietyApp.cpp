@@ -16,18 +16,18 @@ void RoyalSocietyApp::setup() {
     myList->sentinel->prev = myList->sentinel;
 	// Inserts new nodes
 	Node* lastNode;
-	Rect r;
+	Rect* r;
 	r = new Rect(100, 100, 50, 50, Color8u(255, 0, 0));
 	lastNode = myList->insertAfter(myList->sentinel, r);
-	r = new Rect(100, 100, 50, 50, Color8u(255, 0, 0));
-	lastNode = myList->insertAfter(myList->sentinel, r);
-	r = new Rect(100, 100, 50, 50, Color8u(255, 0, 0));
-	lastNode = myList->insertAfter(myList->sentinel, r);
+	r = new Rect(100, 100, 50, 50, Color8u(0, 255, 0));
+	lastNode = myList->insertAfter(lastNode, r);
+	r = new Rect(100, 100, 50, 50, Color8u(0, 0, 255));
+	lastNode = myList->insertAfter(lastNode, r);
 }
 
 void RoyalSocietyApp::helpMenu() {
 	Font menu_font = Font("Arial",32);
-	string menu = "Help Menu\n\n Keys: \n j         Inserts a node \n k        Reverses nodes \n";
+	string menu = "Help Menu\n\n Keys: \n";
 	TextBox tbox = TextBox().alignment( TextBox::CENTER ).font(menu_font).size( Vec2i( 512, 511) ).text( menu );
 	tbox.setColor( Color( 1.0f, 0.65f, 0.35f ) );
 	tbox.setBackgroundColor( ColorA( 0.5, 0, 0, 1 ) );
