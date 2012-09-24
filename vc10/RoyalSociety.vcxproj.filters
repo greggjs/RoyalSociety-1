@@ -18,10 +18,10 @@
     <ClCompile Include="..\src\RoyalSocietyApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Rectangle.cpp">
+    <ClCompile Include="..\src\List.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="List.cpp">
+    <ClCompile Include="..\src\Rect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,13 +29,16 @@
     <ClInclude Include="..\include\Resources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="List.h">
+    <ClInclude Include="..\include\List.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Node.h">
+    <ClInclude Include="..\include\Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Rectangle.h">
+    <ClInclude Include="..\include\Rect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\RoyalSocietyApp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

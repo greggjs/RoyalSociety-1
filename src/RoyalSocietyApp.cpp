@@ -1,24 +1,4 @@
-#include "cinder/app/AppBasic.h"
-#include "cinder/gl/gl.h"
-#include "List.h"
-
-using namespace ci;
-using namespace ci::app;
-using namespace std;
-
-class RoyalSocietyApp : public AppBasic {
-  public:
-	void setup();
-	void mouseDown( MouseEvent event );	
-	void update();
-	void draw();
-	void prepareSettings(Settings* settings);
-private:
-	Surface* mySurface;
-	static const int appWidth = 800;
-	static const int appHeight = 600;
-	static const int textureSize = 1024;
-};
+#include "RoyalSocietyApp.h"
 
 void RoyalSocietyApp::prepareSettings(Settings* settings){
 	(*settings).setWindowSize(appWidth,appHeight);
@@ -27,18 +7,41 @@ void RoyalSocietyApp::prepareSettings(Settings* settings){
 
 void RoyalSocietyApp::setup() {
 	mySurface = new Surface(appWidth, appHeight, false);
+	help = true;
+	helpMenu();
+	myList = new List;
+	// Creates sentinel node
+	myList->sentinel = new Node;
+    myList->sentinel->next = myList->sentinel;
+    myList->sentinel->prev = myList->sentinel;
+	// Inserts new nodes
+	Node* lastNode;
+	Rect r;
+	r = new Rect(100, 100, 50, 50, Color8u(255, 0, 0));
+	lastNode = myList->insertAfter(myList->sentinel, r);
+	r = new Rect(100, 100, 50, 50, Color8u(255, 0, 0));
+	lastNode = myList->insertAfter(myList->sentinel, r);
+	r = new Rect(100, 100, 50, 50, Color8u(255, 0, 0));
+	lastNode = myList->insertAfter(myList->sentinel, r);
 }
 
-void RoyalSocietyApp::mouseDown( MouseEvent event )
-{
+void RoyalSocietyApp::helpMenu() {
+	Font menu_font = Font("Arial",32);
+	string menu = "Help Menu\n\n Keys: \n j         Inserts a node \n k        Reverses nodes \n";
+	TextBox tbox = TextBox().alignment( TextBox::CENTER ).font(menu_font).size( Vec2i( 512, 511) ).text( menu );
+	tbox.setColor( Color( 1.0f, 0.65f, 0.35f ) );
+	tbox.setBackgroundColor( ColorA( 0.5, 0, 0, 1 ) );
+}
+
+void RoyalSocietyApp::mouseDown( MouseEvent event ) {
+
 }
 
 void RoyalSocietyApp::update() {
 	uint8_t* data = (*mySurface).getData();
 }
 
-void RoyalSocietyApp::draw()
-{
+void RoyalSocietyApp::draw() {
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) ); 
 }

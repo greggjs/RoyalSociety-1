@@ -1,5 +1,5 @@
 #include "List.h"
-#include "Rectangle.h"
+#include "Rect.h"
 
 void List::toFront(Node* node) {
 	node->prev->next = node->next;
@@ -10,7 +10,17 @@ void List::toFront(Node* node) {
     node->prev = sentinel;
 }
 
-void List::reverse(){
+Node* List::insertAfter(Node* after_, Rect r) {
+    Node* temp = new Node;
+    temp->next = after_->next;
+    temp->prev = after_;
+    after_->next = temp;
+    temp->next->prev = temp;
+	temp->rect = r;
+	return temp;
+}
+
+void List::reverse() {
     Node* cur = sentinel;
 	Node* temp;
     do {
@@ -19,13 +29,4 @@ void List::reverse(){
         cur->next = temp;
         cur = cur->prev;
     } while(cur != sentinel);
-}
-
-void List::insertAfter(Node* after_me, Rectangle r){
-    Node* temp = new Node;
-    temp->next = after_me->next;
-    temp->prev = after_me;
-    after_me->next = temp;
-    temp->next->prev = temp;
-    temp->rect = r;
 }

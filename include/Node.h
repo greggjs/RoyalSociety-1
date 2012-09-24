@@ -1,8 +1,8 @@
-#include "Rectangle.h"
+#include "Rect.h"
 
 class Node {
 public:
 	Node* next;
 	Node* prev;
-	Rectangle rect;
+	Rect rect;
 };

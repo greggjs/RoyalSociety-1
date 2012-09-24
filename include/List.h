@@ -1,11 +1,11 @@
 #include "Node.h"
-#include "Rectangle.h"
+#include "Rect.h"
 
 class List {
 public:
 	Node* sentinel;
 private:
 	void toFront(Node* node);
-	void insertAfter(Node* after_, Rectangle rect);
+	Node* insertAfter(Node* after_, Rect r);
 	void reverse();
 };
