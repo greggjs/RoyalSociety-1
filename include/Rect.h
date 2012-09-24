@@ -15,9 +15,9 @@ public:
 	int width;
 	int height;
 	Color8u color;
+	void draw(uint8_t* pixels);
 private:
 	static const int appWidth = 800;
 	static const int appHeight = 600;
 	static const int textureSize = 1024;
-	void draw(uint8_t* pixels);
 };

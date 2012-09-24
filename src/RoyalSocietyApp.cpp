@@ -29,8 +29,9 @@ void RoyalSocietyApp::helpMenu() {
 	Font menu_font = Font("Arial",32);
 	string menu = "Help Menu\n\n Keys: \n";
 	TextBox tbox = TextBox().alignment( TextBox::CENTER ).font(menu_font).size( Vec2i( 512, 511) ).text( menu );
-	tbox.setColor( Color( 1.0f, 0.65f, 0.35f ) );
+	tbox.setColor( Color( 1.0f, 1.0f, 1.0f ) );
 	tbox.setBackgroundColor( ColorA( 0.5, 0, 0, 1 ) );
+	gl::draw(tbox.render());
 }
 
 void RoyalSocietyApp::mouseDown( MouseEvent event ) {
@@ -43,7 +44,8 @@ void RoyalSocietyApp::update() {
 
 void RoyalSocietyApp::draw() {
 	// clear out the window with black
-	gl::clear( Color( 0, 0, 0 ) ); 
+	gl::clear( Color( 0, 0, 0 ) );
+	gl::draw(*mySurface);
 }
 
 CINDER_APP_BASIC( RoyalSocietyApp, RendererGl )

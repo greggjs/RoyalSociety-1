@@ -1,5 +1,4 @@
 #include "List.h"
-#include "Rect.h"
 
 void List::toFront(Node* node) {
 	node->prev->next = node->next;
