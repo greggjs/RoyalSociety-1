@@ -11,10 +11,10 @@ public:
 	Rect();
 	Rect(int x, int y, int width, int height, Color8u color);
 	int xCoord_;
-	int yCoord;
-	int width;
-	int height;
-	Color8u color;
+	int yCoord_;
+	int width_;
+	int height_;
+	Color8u color_;
 	void draw(uint8_t* pixels);
 private:
 	static const int appWidth = 800;

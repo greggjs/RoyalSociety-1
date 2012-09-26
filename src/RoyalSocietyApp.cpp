@@ -6,23 +6,23 @@ void RoyalSocietyApp::prepareSettings(Settings* settings){
 }
 
 void RoyalSocietyApp::setup() {
-	mySurface = new Surface(appWidth, appHeight, false);
-	help = true;
+	mySurface_ = new Surface(appWidth, appHeight, false);
+	help_ = true;
 	helpMenu();
-	myList = new List;
-	// Creates sentinel node
-	myList->sentinel = new Node;
-    myList->sentinel->next = myList->sentinel;
-    myList->sentinel->prev = myList->sentinel;
+	my_List_ = new List;
+	// Creates sentinel_ node
+	my_List_->sentinel_ = new Node;
+    my_List_->sentinel_->next_ = my_List_->sentinel_;
+    my_List_->sentinel_->prev_ = my_List_->sentinel_;
 	// Inserts new nodes
 	Node* lastNode;
 	Rect* r;
 	r = new Rect(100, 100, 50, 50, Color8u(255, 0, 0));
-	lastNode = myList->insertAfter(myList->sentinel, r);
+	lastNode = my_List_->insertAfter(my_List_->sentinel_, r);
 	r = new Rect(100, 100, 50, 50, Color8u(0, 255, 0));
-	lastNode = myList->insertAfter(lastNode, r);
+	lastNode = my_List_->insertAfter(lastNode, r);
 	r = new Rect(100, 100, 50, 50, Color8u(0, 0, 255));
-	lastNode = myList->insertAfter(lastNode, r);
+	lastNode = my_List_->insertAfter(lastNode, r);
 }
 
 void RoyalSocietyApp::helpMenu() {
@@ -39,13 +39,13 @@ void RoyalSocietyApp::mouseDown( MouseEvent event ) {
 }
 
 void RoyalSocietyApp::update() {
-	uint8_t* data = (*mySurface).getData();
+	uint8_t* data = (*mySurface_).getData();
 }
 
 void RoyalSocietyApp::draw() {
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) );
-	gl::draw(*mySurface);
+	gl::draw(*mySurface_);
 }
 
 CINDER_APP_BASIC( RoyalSocietyApp, RendererGl )
